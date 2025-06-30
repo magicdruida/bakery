@@ -128,3 +128,26 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(section)
   })
 })
+// Efecto flip del oráculo
+const oraculoFlip = document.getElementById("oraculo-flip");
+const mensajeElemento = document.getElementById("mensaje-oraculo");
+
+const mensajesOraculo = [
+  '"Hoy tu espíritu necesita dulzura para sanar. Abraza tu calma."',
+  '"Estás alineado con la energía solar. Confía en tu brillo."',
+  '"La luna te guía esta noche. Escucha tus sueños."',
+  '"La tierra nutre tu alma. Enraízate y crece."',
+  '"La intuición es tu brújula. Confía en lo que sientes."',
+  '"La gratitud abre portales. Agradece y recibirás con el corazón."'
+];
+
+if (oraculoFlip && mensajeElemento) {
+  oraculoFlip.addEventListener("click", () => {
+    oraculoFlip.classList.toggle("flipped");
+
+    if (oraculoFlip.classList.contains("flipped")) {
+      const random = mensajesOraculo[Math.floor(Math.random() * mensajesOraculo.length)];
+      mensajeElemento.textContent = random;
+    }
+  });
+}
